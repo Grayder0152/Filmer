@@ -1,0 +1,34 @@
+{% load movie_tag %}
+<div class="main-banner bg bg1" id="home">
+    <header class="header">
+        <div class="container-fluid px-lg-5">
+            <nav class="py-4">
+                <div id="logo">
+                    <h1>
+                        <a href="{% url 'home' %}" class="editContent">Filmer</a>
+                    </h1>
+                </div>
+                <label for="drop" class="toggle">Menu</label>
+                <input type="checkbox" id="drop">
+                <ul class="menu mt-2">
+                    <li class="active"><a href="{% url 'home' %}">Главная</a></li>
+                    <li>
+                        <label for="drop-2" class="toggle">Категории <span class="fa fa-angle-down" aria-hidden="true" ></span> </label>
+                        <a href="#">Категории <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                        <input type="checkbox" id="drop-2">
+                        <ul>
+                            {% get_categories as categories %}
+                            {% for category in categories %}
+                                <li><a href="/">{{ category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="banner-info">
+        <h3 class="mb-4 editContent">Все о кино</h3>
+        <div class="ban-buttons"></div>
+    </div>
+</div>
